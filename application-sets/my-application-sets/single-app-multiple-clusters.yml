@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
   - clusters: {} # Automatically use all clusters defined within Argo CD
-  template:      
+  template:
     metadata:
       name: '{{name}}-billing-app'
     spec:
@@ -18,7 +18,7 @@ spec:
         repoURL: https://github.com/codefresh-contrib/gitops-cert-level-2-examples.git
         targetRevision: HEAD
         path: ./application-sets/manifests
-      
+
       # Destination cluster and namespace to deploy the application
       destination:
         server: '{{server}}'
@@ -27,9 +27,8 @@ spec:
       # Sync policy
       syncPolicy:
         syncOptions:
-          - CreateNamespace=true  
-        automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
+        - CreateNamespace=true
+        automated:
+          # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
           prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
           selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
-      
-
