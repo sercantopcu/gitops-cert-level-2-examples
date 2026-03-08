@@ -13,4 +13,3 @@ spec:
           value: "prod"
         - name: GPU_ENABLED
           value: "1"
-      
