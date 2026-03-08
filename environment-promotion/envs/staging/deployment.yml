@@ -13,3 +13,4 @@ spec:
           value: "staging"
         - name: GPU_ENABLED
           value: "1"
+      
